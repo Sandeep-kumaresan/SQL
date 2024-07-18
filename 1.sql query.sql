@@ -66,3 +66,10 @@ select * from salaries order by salary;
 select * from employees where first_name='kavin' and emp_no=1;
 select * from salaries where not salary=60000;
 select * from employees limit 2;
+
+select max(salary) from salaries;
+select min(salary) from salaries;
+select min(salary) as lowersalary from salaries;
+select count(*) from employees;
+select count(*) from employees where gender='M';
+select sum(salary) from salaries;
