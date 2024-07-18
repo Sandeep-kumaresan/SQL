@@ -22,3 +22,47 @@ key(emp_no),key(dept_no),
 foreign key(emp_no) references employees(emp_no),
 foreign key(dept_no) references departments(dept_no),
 primary key(emp_no,dept_no));
+
+CREATE TABLE dept_manager (
+   dept_no      CHAR(4)  NOT NULL,
+   emp_no       INT      NOT NULL,
+   from_date    DATE     NOT NULL,
+   to_date      DATE     NOT NULL,
+   KEY         (emp_no),
+   KEY         (dept_no),
+   FOREIGN KEY (emp_no)  REFERENCES employees (emp_no) ,
+   FOREIGN KEY (dept_no) REFERENCES departments (dept_no) ,
+   PRIMARY KEY (emp_no, dept_no) 
+	);
+    
+create table titles(emp_no int not null,title
+varchar(50) not null,from_date date not null,
+to_date date not null,key(emp_no),foreign key (emp_no)
+references employees(emp_no),primary key(emp_no,
+title,from_date));
+
+insert into employees(emp_no, birth_date, first_name, last_name, gender, hire_date) values (0001, '19-03-18', 'naveen', 'karthik', 'M', '13-12-23');
+insert into departments values(1, 'Civil');
+insert into dept_emp values(1,1, '13-12-23', '13-12-25');
+insert into dept_manager values(1, 1, '13-12-23', '13-12-25');
+insert into titles values(1, 'Manager','13-12-23', '13-12-25');
+insert into salaries values(1, 50000, '13-12-23', '13-12-25');
+insert into salaries values(2, 60000, '14-12-23', '15-12-25');
+update employees set first_name='kavin' where emp_no=1;
+insert into employees values(0002,'12-04-12','raj','kumar','M','13-02-21');
+update employees set hire_date='15-02-21' where emp_no=2;
+select * from employees;
+delete from employees where emp_no=2;
+delete from employees;
+drop table employees;
+select first_name,gender,emp_no from employees;
+insert into employees values(0003,'14-02-15','kavin','karthik','M','15-02-28');
+insert into employees values(0002,'12-04-12','raj','kumar','M','13-02-21');
+select distinct first_name from employees;
+select distinct title from titles;
+select distinct dept_name from departments;
+select * from employees order by hire_date desc;
+select * from salaries order by salary;
+select * from employees where first_name='kavin' and emp_no=1;
+select * from salaries where not salary=60000;
+select * from employees limit 2;
