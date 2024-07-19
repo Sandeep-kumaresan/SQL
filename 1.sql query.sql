@@ -73,3 +73,15 @@ select min(salary) as lowersalary from salaries;
 select count(*) from employees;
 select count(*) from employees where gender='M';
 select sum(salary) from salaries;
+select * from salaries;
+insert into salaries values(3,45000,'15-02-12','16-03-29');
+insert into salaries values(999,15000,'16-02-12','16-03-29');
+select sum(salary) from salaries where from_date between '13-02-20' and '18-09-08';
+select avg(salary) from salaries;
+select avg(salary) from salaries where to_date='16-03-29';
+SELECT * FROM employees WHERE first_name LIKE 'k%'; -- starts with k
+SELECT * FROM employees WHERE first_name LIKE '%k%'; -- anywhere contain k
+select * from employees where first_name like '%j'; -- ends with j
+select * from employees where first_name like 'ka__%'; -- starts with ka follows exact 2 letters then any number of letters
+select * from employees where first_name like '%__in'; -- any number of char followed by 2 letters and ends with in
+select * from salaries where salary in (50000,60000);
