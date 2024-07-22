@@ -85,3 +85,10 @@ select * from employees where first_name like '%j'; -- ends with j
 select * from employees where first_name like 'ka__%'; -- starts with ka follows exact 2 letters then any number of letters
 select * from employees where first_name like '%__in'; -- any number of char followed by 2 letters and ends with in
 select * from salaries where salary in (50000,60000);
+select * from salaries where salary not in (50000);
+select * from salaries where salary not between 10000 and 50000;
+select salary as increment from salaries;
+select * from employees inner join salaries on employees.emp_no = salaries.emp_no;
+select em.first_name , sa.salary from employees as em inner join salaries as sa on em.emp_no = sa.emp_no;
+select * from employees left join salaries on employees.emp_no = salaries.emp_no;
+select em.first_name, sa.salary from employees as em right join salaries as sa on em.emp_no = sa.emp_no;
